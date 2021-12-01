@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -exu
+set -eu
 
 if [ "$#" -ne 1 ]; then
 	echo "Usage: $0 <day-number>"
@@ -13,4 +13,6 @@ DAYDIR="Day $(printf %02d $DAYNO)"
 
 mkdir "$DAYDIR"
 
-cp -r template/* "$DAYDIR"
+cp -r .template/* "$DAYDIR"
+
+echo "$DAYDIR created. GO GO GO!"
