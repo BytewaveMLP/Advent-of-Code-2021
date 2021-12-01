@@ -9,7 +9,7 @@ fi
 
 DAYNO="$1"
 
-DAYDIR="Day $DAYNO"
+DAYDIR="Day $(printf %02d $DAYNO)"
 
 mkdir "$DAYDIR"
 
