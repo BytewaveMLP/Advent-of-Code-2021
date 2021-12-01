@@ -2,12 +2,12 @@
 
 set -exu
 
-DAYNO="$1"
-
-if [ -z "$DAYNO" ]; then
+if [ "$#" -ne 1 ]; then
 	echo "Usage: $0 <day-number>"
 	exit 1
 fi
+
+DAYNO="$1"
 
 DAYDIR="Day $DAYNO"
 
