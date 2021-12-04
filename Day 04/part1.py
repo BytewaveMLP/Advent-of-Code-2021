@@ -17,7 +17,7 @@ def is_bingo_winner(board: List[List[int]]):
 
 def print_board(board: List[List[int]]):
 	for row in board:
-		print(' '.join(str(n) for n in row))
+		print(''.join(f'{n:>4}' for n in row))
 	print()
 
 drawing = [int(n) for n in lines[0].split(',')]
@@ -34,6 +34,9 @@ for line in lines[2:]:
 
 boards.append(current_board)
 
+for board in boards:
+	print_board(board)
+
 for draw in drawing:
 	print(draw)
 	for board in boards:
@@ -41,7 +44,10 @@ for draw in drawing:
 			for i, n in enumerate(row):
 				if n == draw:
 					row[i] = MARK_CH
+		print_board(board)
 		if is_bingo_winner(board):
+			print('BINGO!')
+			print()
 			unmarked_nums_sum = sum(sum(n for n in row if n != MARK_CH) for row in board)
 			print(unmarked_nums_sum)
 			print(draw)
